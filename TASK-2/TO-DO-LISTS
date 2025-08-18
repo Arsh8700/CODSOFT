@@ -1,0 +1,41 @@
+tasks = []
+
+while True:
+    print("\n1. Show tasks\n2. Add task\n3. Remove task\n4. Exit")
+    user_choice = input("Enter your choice: ").strip()
+    if user_choice == "1":
+        if tasks:
+            print("Tasks:")
+            for i, t in enumerate(tasks, 1):
+                print(f"{i}. {t}")
+        else:
+            print("No tasks.")
+    elif user_choice == "2":
+        task = input("Enter task: ").strip()
+        if task:
+            tasks.append(task)
+            print("Task added.")
+        else:
+            print("No task entered.")
+    elif user_choice == "3":
+        if tasks:
+            for i, t in enumerate(tasks, 1):
+                print(f"{i}. {t}")
+            try:
+                idx = int(input("Remove task #: "))
+                if 1 <= idx <= len(tasks):
+                    removed = tasks.pop(idx - 1)
+                    print(f"Removed: {removed}")
+                else:
+                    print("Invalid task number.")
+            except Exception:
+                print("Invalid input.")
+        else:
+            print("No tasks to remove.")
+    elif user_choice == "4":
+        print("Exiting.")
+        break
+    else:
+        print("Invalid input.")
+        if __name__ == "__main__":
+            pass
